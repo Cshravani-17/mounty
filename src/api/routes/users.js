@@ -20,9 +20,12 @@ module.exports = app => {
                     longitude
                 } = req.query;
                 let users;
-                console.log(offset)
-                console.log(type)
-                if (offset && limit) {
+                console.log(req.query)
+                if (req.query.offset && req.query.limit & req.query.type) {
+                    console.log(typeof offset)
+                    console.log(typeof limit)
+                    offset = parseInt(offset);
+                    limit = parseInt(limit);
                     const query = type === "new" ? {
                         userId: {
                             $gt: offset
@@ -32,11 +35,13 @@ module.exports = app => {
                             $lt: offset
                         }
                     }
-                    users = await User.find(query).sort({
+                    users = await User.find({}).sort({
                         createdAt: -1
-                    }).limit(limit)
+                    }).limit(5)
                     return res.status(200).json(users);
                 } else if (latitude && longitude) {
+                    console.log(typeof latitude)
+                    console.log(typeof longitude)
                     users = await User.aggregate([{
                         $geoNear: {
                             near: {
@@ -44,7 +49,8 @@ module.exports = app => {
                                 coordinates: [-14.7678342, 23.164836],
                                 spherical: true,
                                 distanceField: "calcDistance"
-                            }
+                            },
+                            distanceField: "calcDistance"
                         }
                     }])
                     return res.status(200).json(users);

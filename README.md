@@ -71,18 +71,21 @@ curl --location --request GET 'http://localhost:3000/api/v1/users?offset=&limit=
 curl --location --request POST 'http://localhost:3000/api/v1/users' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "name": "Shravani",
-    "mobile": "9270984859",
-    "email": "shravani12@btg.com",
+    "name": "H Roshan",
+    "mobile": "4567892390",
+    "email": "roshan@dhoom2.in",
     "address": {
-        "street": "Saraswathi Nagar",
-        "locality": "L.B.Nagar",
+        "street": "Street",
+        "locality": "Old Alwal",
         "city": "Hyderabad",
         "state": "Telangana",
-        "pincode": "500074",
+        "pincode": "501010",
         "location": {
             "type": "Point",
-            "coordinates": [-14.7678342, 23.164836]
+            "coordinates": [
+                -14.7678342,
+                23.164836
+            ]
         }
     }
 }'
