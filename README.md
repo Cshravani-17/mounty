@@ -58,7 +58,7 @@ There is a user model in `src/models/` which is used in the controller section `
 All the user related routed are handled in `src/api/routes/users.js`. This file contains different user routes like Create User, Update user details, Delete a user and Get all users.
 
 ## APIs
-- Get the list of all users - pagination
+- Get the list of all users - Pagination
 - limit - no of records to fetch
 - Offset - which point to fetch from
 - type - [old,new] in ascending or descending order of createdAt
